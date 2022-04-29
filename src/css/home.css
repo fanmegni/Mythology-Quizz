@@ -1,0 +1,11 @@
+div.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.home button{
+    background-color: red;
+}
