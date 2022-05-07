@@ -1,13 +1,15 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import BlocQuest from "../Component/BlocQuest";
 
 const Questions  = () => {
     const [nbQuestion, setnbQuestion] = useState(1);
-    const [nbJuste, setnbJuste] = useState(0);
+    useEffect(() => {
 
+    })
     return(
         <div>
             <p>{nbQuestion}</p>
-            <p>{nbJuste}</p>
+            <BlocQuest nbQuestion ={nbQuestion} setnbQuestion={setnbQuestion}></BlocQuest>
         </div>
     );
 }

@@ -7,7 +7,7 @@ const Home = () =>{
 
     return(
         <div className={"home"} >
-            <Link to="/Questions">hey</Link>
+            <Link to="/Questions" className="btn btn-primary">hey</Link>
         </div>
     )
 }
