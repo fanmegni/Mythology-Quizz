@@ -1,0 +1,43 @@
+#titreOver{
+    font-size: 2.4em;
+    width: 100%;
+    align-self: center;
+    left: 0;
+    text-align: center;
+}
+
+div.center.over{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 20%;
+}
+
+div.over{
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.over > p {
+    font-size: 2em;
+    width: 70%;
+    text-align: center;
+}
+
+button.over{
+    font-size: 1.3em;
+    align-self: center;
+    border-radius: 8px;
+    border: none;
+}
+
+#meilleurScore{
+    color: #00a9f9;
+}
+
+#score{
+    color: #56BD5A;
+}

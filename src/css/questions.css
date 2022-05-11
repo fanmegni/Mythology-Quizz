@@ -1,0 +1,81 @@
+.questions > p{
+    width: fit-content;
+}
+
+div.questions {
+    position: relative;
+    left: 10%;
+    width: fit-content;
+    top: 20%;
+}
+
+#wins{
+    display: flex;
+    flex-direction: row;
+    font-size: 2em;
+    width: fit-content;
+}
+
+h1{
+    width: fit-content;
+    margin: 0 0 10%;
+}
+
+h1:hover{
+    cursor: pointer;
+}
+
+#nbQuestion{
+    position: relative;
+    color: #00a9f9;
+    left: 10px;
+    width: fit-content;
+}
+
+#question{
+    position: relative;
+    text-align: center;
+    font-size: 1.8em;
+    width: 90%;
+}
+
+div.blocQuest{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.blocBouton{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    justify-content: space-evenly;
+}
+
+.blocBouton > button{
+    color: white;
+    font-size: 1.8em;
+    border-radius: 8px;
+    border: none;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.blocBouton > button:first-of-type{
+    background-color: #56BD5A;
+   width: fit-content;
+}
+
+.blocBouton > button:nth-child(2){
+    background-color: #B85656;
+}
+
+#corps{
+    position: absolute;
+    top: 30%;
+    width: 100%;
+}

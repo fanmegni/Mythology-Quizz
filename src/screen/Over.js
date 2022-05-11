@@ -1,8 +1,19 @@
 import React from "react";
+import "../css/over.css"
 
-const Over = () => {
+const Over = (props) => {
+
+    const score = JSON.parse(localStorage.getItem("dernierScore"))
+    const meilleurScore = JSON.parse(localStorage.getItem("meilleurScore"))
     return(
-        <p>Game Over</p>
+        <div className="over">
+            <h1 id="titreOver">Partie terminée</h1>
+            <div className="over center">
+                <p id="meilleurScore">Meilleur score : {meilleurScore}</p>
+                <p id="score">Score de cette partie : {score}</p>
+            </div>
+            <button className="over" onClick={() => window.location.href = "/"}>Recommencer</button>
+        </div>
     )
 }
 

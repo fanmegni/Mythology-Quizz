@@ -1,14 +1,19 @@
 import React from 'react';
 import './../css/home.css'
-import {Link} from "react-router-dom";
 
 
 const Home = () =>{
 
     return(
-        <div className={"home"} >
-            <Link to="/Questions" className="btn btn-primary">hey</Link>
+        <div id="body">
+            <h1>Mytho Quizz</h1>
+            <div className={"home"} >
+                    <p>Bienvenue dans ce quizz sur la mythologie grecque.</p>
+                    <p>Essayez de trouver si l'affirmation est vraie ou fausse.</p>
+                    <button onClick={() => window.location.href = "/Questions"}>Commencer</button>
+            </div>
         </div>
+
     )
 }
 

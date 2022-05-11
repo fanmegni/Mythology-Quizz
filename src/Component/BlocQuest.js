@@ -1,12 +1,8 @@
 import React, {useEffect, useState} from "react";
-//import {useHistory} from "react-router";
-
-
 
 const BlocQuest = (props) => {
     const [question, setquestion] = useState(undefined)
     const [reponse,setreponse] = useState(undefined)
-    //const history = useHistory();
 
     const recupQuestion = function() {
         fetch("https://quest.noixvide.fr/uneQ.php")
@@ -17,41 +13,44 @@ const BlocQuest = (props) => {
                 })
             )
     }
+
     useEffect(() => {
         recupQuestion()
     },[props.nbQuestion])
 
 
     const navigateTo = function (){
-        //history.push("/GameOver")
-        //TODO faire la fonction pour aller jusqu'a GAME OVER
+        window.location.replace("/GameOver")
     }
 
     const verifier = (button)=>{
-        if(button != reponse){
+        if(button !== reponse){
+            const meilleur = JSON.parse(localStorage.getItem("meilleurScore"))
+            if (meilleur){
+                if (meilleur < props.nbQuestion){
+                    localStorage.setItem("meilleurScore", JSON.stringify(props.nbQuestion))
+                }
+            }
+            else{
+                localStorage.setItem("meilleurScore",JSON.stringify(props.nbQuestion))
+            }
+            localStorage.setItem("dernierScore", JSON.stringify(props.nbQuestion))
             navigateTo();
         }
         else{
             props.setnbQuestion(props.nbQuestion+1)
         }
     }
-
-        if(question === undefined){
-            return(
-                <p>Désolé il n'y a aucune question disponible</p>
-            )
-        }
-        else{
             return (
-                <div>
-                    <p>{question}</p>
-                    <div>
-                        <button onClick={() => verifier("vrai")}>Vrai</button>
+                <div className="blocQuest">
+                    <p id="question">{question}</p>
+                    <div className="blocBouton">
+                        <button onClick={() => verifier("vrai")}
+                        >Vrai</button>
                         <button onClick={() => verifier("faux")}>Faux</button>
                     </div>
                 </div>
             )
-        }
 
 }
 
