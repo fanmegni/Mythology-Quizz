@@ -11,8 +11,9 @@ const Over = (props) => {
             <div className="over center">
                 <p id="meilleurScore">Meilleur score : {meilleurScore}</p>
                 <p id="score">Score de cette partie : {score}</p>
+                <button className="over" onClick={() => window.location.href = "/"}>Recommencer</button>
             </div>
-            <button className="over" onClick={() => window.location.href = "/"}>Recommencer</button>
+
         </div>
     )
 }

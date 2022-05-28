@@ -1,57 +1,41 @@
 import React, {useEffect, useState} from "react";
 
 const BlocQuest = (props) => {
-    const [question, setquestion] = useState(undefined)
-    const [reponse,setreponse] = useState(undefined)
 
-    const recupQuestion = function() {
-        fetch("https://quest.noixvide.fr/uneQ.php")
-            .then(r => r.json()
-                .then(nquestion => {
-                    setquestion(nquestion.question)
-                    setreponse(nquestion.reponse)
-                })
-            )
-    }
-
-    useEffect(() => {
-        recupQuestion()
-    },[props.nbQuestion])
-
-
-    const navigateTo = function (){
+    const navigateTo = function () {
         window.location.replace("/GameOver")
     }
 
-    const verifier = (button)=>{
-        if(button !== reponse){
+    const verifier = (button) => {
+        if (button !== props.reponse) {
             const meilleur = JSON.parse(localStorage.getItem("meilleurScore"))
-            if (meilleur){
-                if (meilleur < props.nbQuestion){
+            if (meilleur) {
+                if (meilleur < props.nbQuestion) {
                     localStorage.setItem("meilleurScore", JSON.stringify(props.nbQuestion))
                 }
-            }
-            else{
-                localStorage.setItem("meilleurScore",JSON.stringify(props.nbQuestion))
+            } else {
+                localStorage.setItem("meilleurScore", JSON.stringify(props.nbQuestion))
             }
             localStorage.setItem("dernierScore", JSON.stringify(props.nbQuestion))
             navigateTo();
-        }
-        else{
-            props.setnbQuestion(props.nbQuestion+1)
+        } else {
+            props.setliste(props.liste.filter(q => q.question !== props.question))
+            props.setnbQuestion(props.nbQuestion + 1)
         }
     }
-            return (
-                <div className="blocQuest">
-                    <p id="question">{question}</p>
-                    <div className="blocBouton">
-                        <button onClick={() => verifier("vrai")}
-                        >Vrai</button>
-                        <button onClick={() => verifier("faux")}>Faux</button>
-                    </div>
+
+    if (props.question != undefined)
+        return (
+            <div className="blocQuest">
+                <p id="question">{props.question}</p>
+                <div className="blocBouton">
+                    <button onClick={() => verifier("vrai")}
+                    >Vrai
+                    </button>
+                    <button onClick={() => verifier("faux")}>Faux</button>
                 </div>
-            )
+            </div>
+        )
 
 }
-
 export default BlocQuest

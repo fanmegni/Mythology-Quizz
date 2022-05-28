@@ -1,12 +1,13 @@
+html{
+    min-height: 100vh;
+}
 div.home{
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-height: 100vh;
     margin: 0;
-    top: 14vh;
     align-self: center;
 }
 
@@ -30,7 +31,9 @@ h1{
     top: 5vh;
     text-decoration: underline;
     width: fit-content;
+    height: fit-content;
     font-size: 3em;
+    margin-block: 0;
 }
 
 .home > button{
@@ -39,7 +42,7 @@ h1{
     font-size: 1.8em;
     border-radius: 8px;
     border-bottom-color: #00A1FF;
-    margin-top: 10%;
+    margin-top: 2%;
     border: none;
 }
 
@@ -49,4 +52,10 @@ button:hover{
 
 button:active{
     opacity: 1;
+}
+
+img{
+    margin-top: 10vh;
+    height: auto;
+    width: 40%;
 }
